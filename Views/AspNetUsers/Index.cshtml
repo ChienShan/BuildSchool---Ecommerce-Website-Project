@@ -1,0 +1,81 @@
+﻿@model IPagedList<Gemma.ViewModel.MemberViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+@section topCSS{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+@*<p>
+        @Html.ActionLink("新增", "Create")
+    </p>*@
+
+
+@using (Html.BeginForm())
+{
+<div class="form-inline">
+    <div class="form-group">
+        <h5 class="ml-2 font-weight-bold">會員搜尋</h5>
+        @Html.TextBox("userName", null, new { placeholder="請輸入使用者名稱" , @class = "form-control ml-3 h-50" })
+    </div>
+    <div class="form-group" style="display:none">
+        @Html.TextBox("search", "true")
+    </div>
+    <div class="form-group">
+        <input type="submit" value="查詢" class="border-0 btn-transition btn btn-outline-success ml-3" />
+    </div>
+</div>
+
+}
+<br />
+<table class="table table-hover table-sm">
+    <thead>
+        <tr class="thead-dark">
+            @*<th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Id)
+        </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td class="text-center">
+                @Html.ActionLink("編輯", "Edit", new { id = item.Id }, new { @class = "mb-2 mr-2 border-0 btn-transition btn btn-outline-focus" })
+                @Html.ActionLink("詳細資料", "Details", new { id = item.Id }, new { @class = "mb-2 mr-2 border-0 btn-transition btn btn-outline-focus" })
+                @Html.ActionLink("刪除", "Delete", new { id = item.Id }, new { @class = "mb-2 mr-2 border-0 btn-transition btn btn-outline-focus" })
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Index", new RouteValueDictionary { { "productName", (string)ViewBag.searchUserName }, { "page", page } }))

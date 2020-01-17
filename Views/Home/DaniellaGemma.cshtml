@@ -1,0 +1,211 @@
+﻿
+@{
+    ViewBag.Title = "DaniellaGemma";
+}
+
+
+@section topCSS{
+
+    <link href="~/Assets/css/LoadingPage.css" rel="stylesheet" />
+
+    <link href="~/Assets/css/HomePage.css" rel="stylesheet" />
+    <link href="~/Assets/css/flexslider.css" rel="stylesheet" />
+    <style>
+        .flexslider{
+            border:0;
+        }
+    </style>
+}
+
+@*Loading Page*@
+<div class="loading">
+    <img src="~/Assets/images/Icons/logo.png" id="loadingimg"/>
+</div>
+
+
+
+@* Carousel Section *@
+<div class="container">
+    <div class="flexslider">
+        <ul class="slides">
+            <li><img src="~/Assets/images/HomePage/Img01.jpg" /></li>
+            <li><img src="~/Assets/images/HomePage/Img02.jpg" /></li>
+            <li><img src="~/Assets/images/HomePage/Img03.jpg" /></li>
+            <li><img src="~/Assets/images/HomePage/Img04.jpg" /></li>
+        </ul>
+    </div>
+</div>
+@* Items Section *@
+<div class="OnlineStoreItems container">
+    <div class="Item-Header">
+        <h1>
+            <a href="@Url.Action("FindBrand","OnlineStore")">ITEM</a>
+        </h1>
+        <p>
+            <a href="@Url.Action("FindBrand","OnlineStore")">all item</a>
+        </p>
+    </div>
+    <div class="row ItemsRow">
+        <div class="ItemsForHotFirst">
+            <div class="Itemscontent">
+                <div class="imageRow">
+                    <a href="@Url.Action("FindBrand","OnlineStore")"><img src="~/Assets/images/HomePage/ItemImg01.jpg" /></a>
+                </div>
+
+                <div class="jsForItems">
+                    <p class="brand">
+                        <mark>Daniella Tam</mark>
+                    </p>
+                    <p class="product">
+                        <mark>チャンキーヒールショートブーツ</mark>
+                    </p>
+                    <p class="price">
+                        <mark>¥21,000 +tax</mark>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="ItemsForHotSecond">
+            <div class="Itemscontent">
+                <div class="imageRow">
+                    <a href="@Url.Action("FindBrand","OnlineStore")"><img src="~/Assets/images/HomePage/ItemImg02.jpg" /></a>
+                </div>
+
+                <div class="jsForItems">
+                    <p class="brand">
+                        <mark>GEMMA LINN</mark>
+                    </p>
+                    <p class="product">
+                        <mark>ポインテッドバレエシューズ</mark>
+                    </p>
+                    <p class="price">
+                        <mark>¥15,000 +tax</mark>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="ItemsForHotThird">
+            <div class="Itemscontent">
+                <div class="imageRow">
+                    <a href="@Url.Action("FindBrand","OnlineStore")"><img src="~/Assets/images/HomePage/ItemImg03.jpg" /></a>
+                </div>
+
+                <div class="jsForItems">
+                    <p class="brand">
+                        <mark>Daniella Tam</mark>
+                    </p>
+                    <p class="product">
+                        <mark>パンプス</mark>
+                    </p>
+                    <p class="price">
+                        <mark>¥13,800～ +tax</mark>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="ItemsForHotFourth">
+            <div class="Itemscontent">
+                <div class="imageRow">
+                    <a href="@Url.Action("FindBrand","OnlineStore")"><img src="~/Assets/images/HomePage/ItemImg04.jpg" /></a>
+                </div>
+
+                <div class="jsForItems">
+                    <p class="brand">
+                        <mark>GEMMA LINN</mark>
+                    </p>
+                    <p class="product">
+                        <mark>ラビットファーベルトスニーカー</mark>
+                    </p>
+                    <p class="price">
+                        <mark>¥14,000～ +tax</mark>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="ItemsForHotFifth">
+            <div class="Itemscontent">
+                <div class="imageRow">
+                    <a href="@Url.Action("FindBrand","OnlineStore")"><img src="~/Assets/images/HomePage/ItemImg05.jpg" /></a>
+                </div>
+                <div class="jsForItems">
+                    <p class="brand">
+                        <mark>Daniella Tam / GEMMA LINN</mark>
+                    </p>
+                    <p class="product">
+                        <mark>アニマル柄シューズ</mark>
+                    </p>
+                    <p class="price">
+                        <mark>¥10,000～ +tax</mark>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+@* Journal Section *@
+<div class="Journal-Section container-fluid">
+    <div class="Journal-Header">
+        <h1>
+            <a href="@Url.Action("Index","Journall")">Journal</a>
+        </h1>
+        <p>
+            <a href="@Url.Action("Index","Journall")">all Journal</a>
+        </p>
+    </div>
+    <div class="Journal-Body">
+        <div class="Journal-Picture">
+            <a href="@Url.Action("Index","Journall")">
+                <img src="~/Assets/images/HomePage/Journal01.jpg" />
+            </a>
+            <a href="@Url.Action("Index","Journall")">
+                <img src="~/Assets/images/HomePage/Journal02.jpg" />
+            </a>
+            <a href="@Url.Action("Index","Journall")">
+                <img src="~/Assets/images/HomePage/Journal03.jpeg" />
+            </a>
+        </div>
+    </div>
+</div>
+<br />
+<div class="Collection-Section container">
+    <div class="Collection-Header">
+        <h1>
+            <a href="@Url.Action("CollectionPhotos","Collection")">Collection</a>
+        </h1>
+        <p>
+            <a href="@Url.Action("CollectionPhotos","Collection")">all Collection</a>
+        </p>
+    </div>
+    <div class="Collection-Body">
+        <div class="Collection-Picture">
+            <a href="@Url.Action("CollectionPhotos","Collection")">
+                <img src="~/Assets/images/HomePage/Collection.jpg" />
+            </a>
+        </div>
+    </div>
+
+</div>
+
+@section endJS{
+
+    <script src="~/Assets/js/LoadingPage.js"></script>
+
+    <script src="~/Assets/js/HomePageForItemsAndJournal.js"></script>
+    <script src="~/Assets/js/HomePageForCollection.js"></script>
+    <script src="~/Assets/js/jquery.flexslider-min.js"></script>
+    <script>
+        $(() => {
+            $('.flexslider').flexslider({
+                slideshowSpeed: 3500
+            })
+            document.getElementById("loadingimg").addEventListener('animationend', function () { document.getElementsByClassName("loading")[0].style.display = 'none' })
+            setTimeout(function () { document.getElementsByClassName("loading")[0].style.display = 'none'},5000)
+        })
+    </script>
+}
+
+

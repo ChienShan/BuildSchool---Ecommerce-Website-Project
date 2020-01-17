@@ -1,0 +1,266 @@
+﻿body {
+    background-color: #F5F5F5;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-family: sans-serif;
+}
+
+/*消除下拉式選單的箭頭*/
+.dropdown-toggle::after {
+    display: none
+}
+/*CSS for _Header.cshtml*/
+.logo img {
+    /*height: 75%;
+    width: 75%;*/
+
+    /*以下新加入*/
+    height: 75%;
+    width: 23%;
+    position: absolute;
+    top: 40%;
+    left: 3%;
+}
+
+.header {
+    position: fixed;
+    background-color: #F5F5F5;
+    z-index: 9999;
+}
+
+    .header a:hover {
+        background-color: #F5F5F5;
+        color: black;
+    }
+
+/*.header-nav {
+    float: left;
+    left: 15%;
+    position: relative;
+
+}*/
+
+/*重新定位NAVBAR裡面的icon*/
+.header-nav{
+    position:absolute;
+    top:25%;
+    right:3%;
+}
+
+
+    /*新加入設定高度用*/
+    .navblock {
+        height: 180px;
+    }
+
+.header-tool {
+    height: 67px;
+}
+
+.PaddingTopCSS {
+    padding-top: 180px;
+}
+/*CSS for _Social_Icons.cshtml*/
+.social-icons {
+    position: fixed;
+    right: 1px;
+    top: 35%;
+    width: 8em;
+    margin-right: 35px;
+    z-index: 9998;
+}
+
+    .social-icons li {
+        padding: 20px;
+    }
+/*CSS for _Footer.cshtml*/
+/*For IG*/
+.instagram-column {
+    padding-top: 100px;
+    width: 1600px;
+    height: 450px;
+    overflow: hidden;
+}
+
+.section-header {
+    text-align: right;
+}
+
+.section-title a {
+    font-size: 60px;
+}
+
+.instagram-list {
+    width: 1300px;
+    height: 360px;
+    overflow: hidden;
+}
+
+    .instagram-list ul {
+        margin: 0;
+        padding: 0px;
+    }
+
+        .instagram-list ul li {
+            list-style: none;
+            display: inline;
+        }
+
+            .instagram-list ul li a img {
+                width: 180px;
+                height: 180px;
+            }
+
+
+/*For News Letter*/
+.footer-form__title {
+    text-align: center;
+    font-size: 60px;
+}
+
+.footer-form-email {
+    text-align: center;
+    padding: 50px;
+}
+
+.form-input-text {
+    text-align: center;
+    font-size: 15px;
+    color: red;
+    width: 676px;
+    height: 40px;
+}
+
+.form-btn-go {
+    background-color: black;
+    color: white;
+    width: 200px;
+    height: 38px;
+    font-size: 15px;
+}
+/*For Footer-support*/
+.footer-support {
+    padding: 50px;
+}
+
+.footer-support {
+    background-color: #FFFFFF;
+}
+
+.title {
+    text-align: center;
+}
+
+.footer-support img {
+    height: 30%;
+    width: 30%;
+}
+
+.footer-nav {
+    background-color: lightsteelblue;
+    text-align: center;
+}
+
+    .footer-nav a {
+        float: left;
+        left: 35%;
+        position: relative;
+        padding: 40px;
+    }
+
+    .footer-nav a {
+        color: white;
+    }
+
+        .footer-nav a:hover {
+            background-color: lightsteelblue;
+            color: white;
+        }
+::placeholder {
+    color: red;
+}
+
+
+
+
+/*NAVBAR動畫*/
+/*下滑NAVBAR變小動畫*/
+.fixed {
+    /*height: 80px;
+    transition-duration: 1s;*/
+    animation-name: downnavbar;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.photoanimation {
+    /*width: 10%;
+    height: 85%;
+    transition-duration: 1s;*/
+    animation-name: downimg;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+/*上滑NAVBAR回復動畫*/
+.fixed-2 {
+    /*height: 180px;
+    transition-duration: 1s;*/
+    animation-name: upnavbar;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.photoanimation-2 {
+    /*height: 85%;
+    width: 23%;*/
+    animation-name: upimg;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes downnavbar{
+    0% {
+        height: 180px;
+    }
+    100% {
+        height: 80px;
+    }
+}
+@keyframes upnavbar{
+    0% {
+        height: 80px;
+    }
+    100% {
+        height: 180px;
+    }
+}
+
+@keyframes downimg{
+    0% {
+        height: 75%;
+        width: 23%;
+    }
+    100% {
+        width: 15%;
+        height: 95%;
+    }
+}
+@keyframes upimg {
+    0% {
+        width: 15%;
+        height: 95%;
+    }
+
+    100% {
+        height: 75%;
+        width: 23%;
+    }
+}

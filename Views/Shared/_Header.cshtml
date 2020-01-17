@@ -1,0 +1,79 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "_Header";
+
+        if (Session["CartItemCount"] == null)
+    {
+        Session["CartItemCount"] = 0;
+    }
+}
+
+
+<div class="container-fluid header navblock">
+    <br />
+    <div class="row ">
+        <div class="logo row">
+            <a class="picture" href="@Url.Action("DaniellaGemma","Home")"><img src="~/Assets/images/Icons/logo.png" /></a>
+
+        </div>
+        <div class="header-nav row">
+
+            <ul class="nav ul-1">
+                <li class="nav-item">
+                    <a class="nav-link active" href="@Url.Action("FindBrand","OnlineStore")">ONLINE STORE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("CollectionPhotos","Collection")">COLLECTION</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index","Journall")">JOURNAL</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Shop","SHOP")">SHOP</a>
+                </li>
+                
+            </ul>
+
+            <ul class="nav ul-2">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>
+                        <a class="nav-link" href="@Url.Action("MemberInfo", "MemberCenter", new { id = User.Identity.GetUserId() })">@User.Identity.Name</a>
+                    </li>
+                }
+            </ul>
+
+            @Html.Partial("_NewLoginPartial")
+
+            @*
+                <ul class="nav header-tool">
+                    <li class="account nav-item dropdown">
+
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="~/Assets/images/Icons/User_Mark.png" />
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">新規会員登録</a>
+                        <a class="dropdown-item" href="#">LOGIN</a>
+                  </div>
+
+                        </li>
+
+
+
+                    <li class="bookmark">
+                        <a href="#"><img src="~/Assets/images/Icons/Heart_Mark.png" /></a>
+                    </li>
+                    <li class="cart">
+                        <a href="#"><img src="~/Assets/images/Icons/Cart_Mark.png" /></a>
+                    </li>
+                    </ul>
+            *@
+
+        </div>
+    </div>
+    <br />
+</div>
+<div class="PaddingTopCSS">
+
+</div>

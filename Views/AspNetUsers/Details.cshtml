@@ -1,0 +1,65 @@
+﻿@model Gemma.ViewModel.MemberViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@*@section topCSS{
+        <link href="~/Assets/css/sb-admin-2.min.css" rel="stylesheet">
+    }*@
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+
+        <h3 class="card-title ml-3">會員明細</h3>
+        <hr />
+        <dl class="dl-horizontal ml-3">
+            @*<dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+        </dl>
+
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("編輯", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" })
+        </div>
+        <div>
+            @Html.ActionLink("返回會員管理頁面", "Index", null, new { @class = "mb-2 mr-2 btn btn-link" })
+        </div>
+    </div>
+</div>

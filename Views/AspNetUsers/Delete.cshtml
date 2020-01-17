@@ -1,0 +1,59 @@
+﻿@model Gemma.ViewModel.MemberViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+
+
+        <h3 class="card-title ml-3">刪除會員</h3>
+        <hr />
+        <dl class="dl-horizontal ml-3">
+            <dt>
+                @Html.DisplayNameFor(model => model.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="刪除" class="btn btn-danger ml-3" /><br />
+                @Html.ActionLink("返回會員管理頁面", "Index", null, new { @class = "mb-2 mr-2 btn btn-link" })
+            </div>
+        }
+
+    </div>
+    </div>

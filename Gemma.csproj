@@ -1,0 +1,869 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41515779-CC1D-4B7B-860E-4B717F96DFA6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Gemma</RootNamespace>
+    <AssemblyName>Gemma</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44333</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.6</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.1.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RestSharp, Version=106.6.10.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.6.10\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.12.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.12.0\lib\net452\SendGrid.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BookMarkController.cs" />
+    <Compile Include="Controllers\BackStageHomeController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
+    <Compile Include="Controllers\CollectionController.cs" />
+    <Compile Include="Controllers\DetailsController.cs" />
+    <Compile Include="Controllers\JournallController.cs" />
+    <Compile Include="Controllers\JsonDataApiController.cs" />
+    <Compile Include="Controllers\MemberCenterController.cs" />
+    <Compile Include="Controllers\BackStockController.cs" />
+    <Compile Include="Controllers\OnlineStoreController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Helper\asterisk.cs" />
+    <Compile Include="Migrations\201911300636204_AddFieldDateOfBirth.cs" />
+    <Compile Include="Migrations\201911300636204_AddFieldDateOfBirth.Designer.cs">
+      <DependentUpon>201911300636204_AddFieldDateOfBirth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AspNetRole.cs" />
+    <Compile Include="Models\AspNetUser.cs" />
+    <Compile Include="Models\AspNetUserClaim.cs" />
+    <Compile Include="Models\AspNetUserLogin.cs" />
+    <Compile Include="Models\BookMark.cs" />
+    <Compile Include="Models\Cart.cs" />
+    <Compile Include="Models\CartFromDetail.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\CollectionItem.cs" />
+    <Compile Include="Models\Color.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Models\GemmaDBContext.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Controllers\AspNetUsersController.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MetaData\AspNetUserMD.cs" />
+    <Compile Include="Models\MetaData\MemberCenter.cs" />
+    <Compile Include="Models\MetaData\OrderMD.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductColorDetails.cs" />
+    <Compile Include="Models\ProductSizeDetails.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\Size.cs" />
+    <Compile Include="Repository\CheckoutRepository.cs" />
+    <Compile Include="Repository\MemberRepository.cs" />
+    <Compile Include="Repository\OnlineStoreRepository.cs" />
+    <Compile Include="Repository\OrderRepository.cs" />
+    <Compile Include="Repository\ProductRepository.cs" />
+    <Compile Include="Repository\SingleProductRepository.cs" />
+    <Compile Include="Repository\StockRepository.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Models\Stock.cs" />
+    <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Repository\MemberCenterRepository.cs" />
+    <Compile Include="ViewModel\BookMarkViewModel.cs" />
+    <Compile Include="ViewModel\CartViewModel.cs" />
+    <Compile Include="ViewModel\CheckMemberInfoViewModel.cs" />
+    <Compile Include="ViewModel\ConvertCartArray.cs" />
+    <Compile Include="ViewModel\CreditcardViewModel.cs" />
+    <Compile Include="ViewModel\Line.cs" />
+    <Compile Include="ViewModel\LineAnalytics.cs" />
+    <Compile Include="ViewModel\MemberViewModel.cs" />
+    <Compile Include="ViewModel\OnlineStoreProductVM.cs" />
+    <Compile Include="ViewModel\OrderDetailProduct.cs" />
+    <Compile Include="ViewModel\OrderDetailViewModel.cs" />
+    <Compile Include="ViewModel\OrderViewModel.cs" />
+    <Compile Include="ViewModel\ProductViewModel.cs" />
+    <Compile Include="ViewModel\SingleProductDetailViewModel.cs" />
+    <Compile Include="ViewModel\SingleProductViewModel.cs" />
+    <Compile Include="ViewModel\StockViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\css\BookMark.css" />
+    <Content Include="Assets\css\CollectionStyle.css" />
+    <Content Include="Assets\css\FixedMenu.css" />
+    <Content Include="Assets\css\flexslider.css" />
+    <Content Include="Assets\css\ForOnlineStoreCdnFontAwesome.min.css" />
+    <Content Include="Assets\css\ForOnlineStoreCdnW3.css" />
+    <Content Include="Assets\css\lightbox.css" />
+    <Content Include="Assets\css\lightbox.min.css" />
+    <Content Include="Assets\css\HomePage.css" />
+    <Content Include="Assets\css\LoadingPage.css" />
+    <Content Include="Assets\css\MemberCenter.css" />
+    <Content Include="Assets\css\OnlineStore.css" />
+    <Content Include="Assets\css\Shop.css" />
+    <Content Include="Assets\images\close.png" />
+    <Content Include="Assets\images\collection\1.jpg" />
+    <Content Include="Assets\images\collection\10.jpg" />
+    <Content Include="Assets\images\collection\11.jpg" />
+    <Content Include="Assets\images\collection\12.jpg" />
+    <Content Include="Assets\images\collection\13.jpg" />
+    <Content Include="Assets\images\collection\14.jpg" />
+    <Content Include="Assets\images\collection\15.jpg" />
+    <Content Include="Assets\images\collection\16.jpg" />
+    <Content Include="Assets\images\collection\17.jpg" />
+    <Content Include="Assets\images\collection\18.jpg" />
+    <Content Include="Assets\images\collection\2.jpg" />
+    <Content Include="Assets\images\collection\3.jpg" />
+    <Content Include="Assets\images\collection\4.jpg" />
+    <Content Include="Assets\images\collection\5.jpg" />
+    <Content Include="Assets\images\collection\6.jpg" />
+    <Content Include="Assets\images\collection\7.jpg" />
+    <Content Include="Assets\images\collection\8.jpg" />
+    <Content Include="Assets\images\collection\9.jpg" />
+    <Content Include="Assets\images\empty.jpg" />
+    <Content Include="Assets\images\HomePage\Collection.jpg" />
+    <Content Include="Assets\images\HomePage\IGImg01.jpg" />
+    <Content Include="Assets\images\HomePage\IGImg02.jpg" />
+    <Content Include="Assets\images\HomePage\IGImg03.jpg" />
+    <Content Include="Assets\images\HomePage\IGImg04.jpg" />
+    <Content Include="Assets\images\HomePage\IGImg05.jpg" />
+    <Content Include="Assets\images\HomePage\IGImg06.jpg" />
+    <Content Include="Assets\images\HomePage\ItemImg01.jpg" />
+    <Content Include="Assets\images\HomePage\ItemImg02.jpg" />
+    <Content Include="Assets\images\HomePage\ItemImg03.jpg" />
+    <Content Include="Assets\images\HomePage\ItemImg04.jpg" />
+    <Content Include="Assets\images\HomePage\ItemImg05.jpg" />
+    <Content Include="Assets\images\HomePage\Img01.jpg" />
+    <Content Include="Assets\images\HomePage\Img02.jpg" />
+    <Content Include="Assets\images\HomePage\Img03.jpg" />
+    <Content Include="Assets\images\HomePage\Img04.jpg" />
+    <Content Include="Assets\images\HomePage\Journal01.jpg" />
+    <Content Include="Assets\images\HomePage\Journal02.jpg" />
+    <Content Include="Assets\images\HomePage\Journal03.jpeg" />
+    <Content Include="Assets\images\Icons\Cart_Mark.png" />
+    <Content Include="Assets\images\Icons\emptyheart.svg" />
+    <Content Include="Assets\images\Icons\Facebook_Mark.png" />
+    <Content Include="Assets\images\Icons\footer-icon-maintenance.png" />
+    <Content Include="Assets\images\Icons\footer-icon-point.png" />
+    <Content Include="Assets\images\Icons\footer-icon-return.png" />
+    <Content Include="Assets\images\Icons\footer-icon-shipping.png" />
+    <Content Include="Assets\images\Icons\fullheart.svg" />
+    <Content Include="Assets\images\Icons\header-icon-bookmark.svg" />
+    <Content Include="Assets\images\Icons\Heart_Mark.png" />
+    <Content Include="Assets\images\Icons\Instagram_Mark.png" />
+    <Content Include="Assets\images\Icons\Line_Mark.png" />
+    <Content Include="Assets\images\Icons\logo.png" />
+    <Content Include="Assets\images\Icons\Twitter_Mark.png" />
+    <Content Include="Assets\images\Icons\User_Mark.png" />
+    <Content Include="Assets\images\Journalimg\J1-2.jpg" />
+    <Content Include="Assets\images\Journalimg\J1-3.jpg" />
+    <Content Include="Assets\images\Journalimg\J1.jpg" />
+    <Content Include="Assets\images\Journalimg\J2-2.jpg" />
+    <Content Include="Assets\images\Journalimg\J2-3.jpg" />
+    <Content Include="Assets\images\Journalimg\J2-4.jpg" />
+    <Content Include="Assets\images\Journalimg\J2.jpg" />
+    <Content Include="Assets\images\Journalimg\J3.jpg" />
+    <Content Include="Assets\images\Journalimg\J4.jpg" />
+    <Content Include="Assets\images\Journalimg\J5.jpg" />
+    <Content Include="Assets\images\Journalimg\J6-2.jpg" />
+    <Content Include="Assets\images\Journalimg\J6-3.jpg" />
+    <Content Include="Assets\images\Journalimg\J6.jpg" />
+    <Content Include="Assets\images\Journalimg\J7-2.jpg" />
+    <Content Include="Assets\images\Journalimg\J7-3.jpg" />
+    <Content Include="Assets\images\Journalimg\J7-4.jpg" />
+    <Content Include="Assets\images\Journalimg\J7.jpg" />
+    <Content Include="Assets\images\Journalimg\J8.jpg" />
+    <Content Include="Assets\images\loading.gif" />
+    <Content Include="Assets\images\next.png" />
+    <Content Include="Assets\images\prev.png" />
+    <Content Include="Assets\images\Product\colors\black.jpg" />
+    <Content Include="Assets\images\Product\colors\blue.jpg" />
+    <Content Include="Assets\images\Product\colors\brown.jpg" />
+    <Content Include="Assets\images\Product\colors\gray.jpg" />
+    <Content Include="Assets\images\Product\colors\leopard.jpg" />
+    <Content Include="Assets\images\Product\colors\red.jpg" />
+    <Content Include="Assets\images\Product\colors\snake.jpg" />
+    <Content Include="Assets\images\Product\colors\white.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Pointed ballet shoes\black\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Pointed ballet shoes\black\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Pointed ballet shoes\index1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Pointed ballet shoes\index2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Pointed ballet shoes\leopard\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Pointed ballet shoes\leopard\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Pointed ballet shoes\white\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Poodle separate flat pumps\black\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Poodle separate flat pumps\black\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Poodle separate flat pumps\brown\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Poodle separate flat pumps\brown\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Poodle separate flat pumps\index1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Poodle separate flat pumps\index2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Poodle separate flat pumps\leopard\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Poodle separate flat pumps\leopard\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square ballet shoes studs heel\black\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square ballet shoes studs heel\index1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square ballet shoes studs heel\index2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square ballet shoes studs heel\leopard\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square ballet shoes studs heel\leopard\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square ballet shoes studs heel\white\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square ballet shoes studs heel\white\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square toe V-cut 2 way flat shoes\black\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square toe V-cut 2 way flat shoes\black\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square toe V-cut 2 way flat shoes\index1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Square toe V-cut 2 way flat shoes\index2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Star motif opera shoes\black\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Star motif opera shoes\black\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Star motif opera shoes\black\3.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Star motif opera shoes\index1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Star motif opera shoes\index2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Suede ribbon pumps\black\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Suede ribbon pumps\black\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Suede ribbon pumps\brown\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Suede ribbon pumps\brown\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Suede ribbon pumps\gray\1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Suede ribbon pumps\gray\2.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Suede ribbon pumps\index1.jpg" />
+    <Content Include="Assets\images\Product\FLATSHOES\Suede ribbon pumps\index2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY bit loafer\black\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY bit loafer\black\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY bit loafer\index1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY bit loafer\index2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY bit loafer\leopard\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY bit loafer\leopard\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY bit loafer\snake\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY bit loafer\snake\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY suede loafers\brown\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY suede loafers\brown\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY suede loafers\brown\3.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY suede loafers\index1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\2WAY suede loafers\index2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Bit heel loafers\black\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Bit heel loafers\black\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Bit heel loafers\black\3.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Bit heel loafers\index1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Bit heel loafers\index2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Lace-up shoes\black\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Lace-up shoes\black\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Lace-up shoes\index1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Lace-up shoes\index2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Lace-up shoes\white\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Lace-up shoes\white\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Medallion platform lace-up shoes\black\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Medallion platform lace-up shoes\black\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Medallion platform lace-up shoes\index1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Medallion platform lace-up shoes\index2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Medallion platform lace-up shoes\white\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Medallion platform lace-up shoes\white\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Medallion platform lace-up shoes\white\3.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Round toe platform loafers\black\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Round toe platform loafers\black\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Round toe platform loafers\index1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Round toe platform loafers\index2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Round toe platform loafers\leopard\1.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Round toe platform loafers\leopard\2.jpg" />
+    <Content Include="Assets\images\Product\MANNISH\Round toe platform loafers\snake\1.jpg" />
+    <Content Include="Assets\images\Product\OnlineStore.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm chunky heel V cut pointed pumps\black\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm chunky heel V cut pointed pumps\brown\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm chunky heel V cut pointed pumps\brown\2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm chunky heel V cut pointed pumps\index1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm chunky heel V cut pointed pumps\index2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm chunky heel V cut pointed pumps\red\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm pointed pumps\black\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm pointed pumps\brown\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm pointed pumps\brown\2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm pointed pumps\index1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm pointed pumps\index2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\45mm pointed pumps\leopard\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\65mm pointed pumps\black\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\65mm pointed pumps\brown\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\65mm pointed pumps\brown\2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\65mm pointed pumps\index1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\65mm pointed pumps\index2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\65mm pointed pumps\snake\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Ankle strap pointed double line pumps\black\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Ankle strap pointed double line pumps\black\2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Ankle strap pointed double line pumps\blue\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Ankle strap pointed double line pumps\gray\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Ankle strap pointed double line pumps\gray\2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Ankle strap pointed double line pumps\index1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Ankle strap pointed double line pumps\index2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed enamel loafers pumps\black\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed enamel loafers pumps\black\2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed enamel loafers pumps\index1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed enamel loafers pumps\index2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed enamel loafers pumps\leopard\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed enamel loafers pumps\leopard\2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed shoe tea pumps\black\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed shoe tea pumps\index1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed shoe tea pumps\index2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed shoe tea pumps\leopard\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed shoe tea pumps\snake\1.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed shoe tea pumps\snake\2.jpg" />
+    <Content Include="Assets\images\Product\PUMPS\Pointed shoe tea pumps\white\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Eco Fur &amp; Pony Slip-ons\black\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Eco Fur &amp; Pony Slip-ons\black\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Eco Fur &amp; Pony Slip-ons\gray\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Eco Fur &amp; Pony Slip-ons\gray\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Eco Fur &amp; Pony Slip-ons\index1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Eco Fur &amp; Pony Slip-ons\index2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Eco Fur &amp; Pony Slip-ons\leopard\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Knit high-top sneakers\black\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Knit high-top sneakers\black\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Knit high-top sneakers\black\3.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Knit high-top sneakers\gray\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Knit high-top sneakers\gray\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Knit high-top sneakers\gray\3.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Knit high-top sneakers\index1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Knit high-top sneakers\index2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python &amp; croco-embossed slip-ons\black\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python &amp; croco-embossed slip-ons\black\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python &amp; croco-embossed slip-ons\index1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python &amp; croco-embossed slip-ons\index2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python &amp; croco-embossed slip-ons\snake\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python &amp; croco-embossed slip-ons\snake\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python &amp; croco-embossed slip-ons\snake\3.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python pattern slip-ons\index1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python pattern slip-ons\index2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python pattern slip-ons\snake\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python pattern slip-ons\snake\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Python pattern slip-ons\snake\3.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit Fur Belt Sneaker\black\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit Fur Belt Sneaker\black\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit Fur Belt Sneaker\index1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit Fur Belt Sneaker\index2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit Fur Belt Sneaker\white\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit Fur Belt Sneaker\white\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit Fur Belt Sneaker\white\3.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit fur sneakers\black\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit fur sneakers\black\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit fur sneakers\index1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit fur sneakers\index2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit fur sneakers\white\1.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit fur sneakers\white\2.jpg" />
+    <Content Include="Assets\images\Product\SNEAKER\Rabbit fur sneakers\white\3.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Chunky heel ankle boots\black\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Chunky heel ankle boots\black\2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Chunky heel ankle boots\brown\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Chunky heel ankle boots\index1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Chunky heel ankle boots\index2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Chunky heel ankle boots\snake\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Chunky heel ankle boots\snake\2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Chunky heel ankle boots\white\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Python pattern stretch boots\black\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Python pattern stretch boots\index1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Side cut ankle boots\black\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Side cut ankle boots\black\2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Side cut ankle boots\brown\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Side cut ankle boots\index1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Side cut ankle boots\index2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Side cut ankle boots\snake\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Side cut ankle boots\white\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Square toe short boots\black\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Square toe short boots\brown\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Square toe short boots\brown\2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Square toe short boots\index1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Square toe short boots\index2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Studded short boots\black\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Studded short boots\black\2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Studded short boots\brown\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Studded short boots\index1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Studded short boots\index2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Suede stretch boots\black\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Suede stretch boots\black\2.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Suede stretch boots\brown\1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Suede stretch boots\index1.jpg" />
+    <Content Include="Assets\images\Product\BOOTS\Suede stretch boots\index2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\2way ribbon mules\black\1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\2way ribbon mules\black\2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\2way ribbon mules\brown\1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\2way ribbon mules\brown\2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\2way ribbon mules\index1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\2way ribbon mules\index2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Pointed Rabbit Farm Mule\black\1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Pointed Rabbit Farm Mule\black\2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Pointed Rabbit Farm Mule\brown\1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Pointed Rabbit Farm Mule\brown\2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Pointed Rabbit Farm Mule\index1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Pointed Rabbit Farm Mule\index2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Square Tour Rabbit Fur Slipper Mule\black\1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Square Tour Rabbit Fur Slipper Mule\black\2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Square Tour Rabbit Fur Slipper Mule\brown\1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Square Tour Rabbit Fur Slipper Mule\brown\2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Square Tour Rabbit Fur Slipper Mule\index1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Square Tour Rabbit Fur Slipper Mule\index2.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Square Tour Rabbit Fur Slipper Mule\white\1.jpg" />
+    <Content Include="Assets\images\Product\SANDAL\Square Tour Rabbit Fur Slipper Mule\white\2.jpg" />
+    <Content Include="Assets\js\CollectionJS.js" />
+    <Content Include="Assets\js\fbsdk.js" />
+    <Content Include="Assets\js\FixedMenuForIG.js" />
+    <Content Include="Assets\js\HomePageForCollection.js" />
+    <Content Include="Assets\js\HomePageForItemsAndJournal.js" />
+    <Content Include="Assets\js\jquery.flexslider-min.js" />
+    <Content Include="Assets\js\jquery.flexslider.js" />
+    <Content Include="Assets\js\lightbox-plus-jquery.js" />
+    <Content Include="Assets\js\lightbox-plus-jquery.min.js" />
+    <Content Include="Assets\js\lightbox.js" />
+    <Content Include="Assets\js\lightbox.min.js" />
+    <Content Include="Assets\css\main.css" />
+    <Content Include="Assets\js\LoadingPage.js" />
+    <Content Include="Assets\js\main.js" />
+    <Content Include="Assets\js\navbaranimation.js" />
+    <Content Include="Assets\js\utils.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrapForFour.css" />
+    <Content Include="Content\Chart.css" />
+    <Content Include="Content\Chart.min.css" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Chart.js" />
+    <Content Include="Scripts\Chart.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\Gemma2019 - Web Deploy.pubxml" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\_BackStagePartialTop.cshtml" />
+    <Content Include="Views\AspNetUsers\Create.cshtml" />
+    <Content Include="Views\AspNetUsers\Details.cshtml" />
+    <Content Include="Views\AspNetUsers\Edit.cshtml" />
+    <Content Include="Views\Collection\CollectionPhotos.cshtml" />
+    <Content Include="Views\Shared\_CollectionPartial.cshtml" />
+    <Content Include="Views\AspNetUsers\Delete.cshtml" />
+    <Content Include="Views\Shared\_BackStagePartialMain.cshtml" />
+    <Content Include="Views\BackStock\Index.cshtml" />
+    <Content Include="Views\BackStock\Details.cshtml" />
+    <Content Include="Views\BackStock\Create.cshtml" />
+    <Content Include="Views\BackStock\Edit.cshtml" />
+    <Content Include="Views\BackStock\Delete.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Social_Icons.cshtml" />
+    <Content Include="Views\Shared\IndexPartial.cshtml" />
+    <Content Include="Views\Journall\Index.cshtml" />
+    <Content Include="Views\Journall\JournalList1.cshtml" />
+    <Content Include="Views\Home\DaniellaGemma.cshtml" />
+    <Content Include="Views\MemberCenter\Home.cshtml" />
+    <Content Include="Views\MemberCenter\MemberInfo.cshtml" />
+    <Content Include="Views\MemberCenter\OrderSearch.cshtml" />
+    <Content Include="Views\AspNetUsers\Index.cshtml" />
+    <Content Include="Views\BookMark\Index.cshtml" />
+    <Content Include="Views\BackStageHome\Index.cshtml" />
+    <Content Include="Views\BackStageHome\_Layout.cshtml" />
+    <Content Include="Views\BackStageHome\_ViewStart.cshtml" />
+    <Content Include="Views\BackStock\_Layout.cshtml" />
+    <Content Include="Views\BackStock\_ViewStart.cshtml" />
+    <Content Include="Views\AspNetUsers\_Layout.cshtml" />
+    <Content Include="Views\AspNetUsers\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_NewLoginPartial.cshtml" />
+    <Content Include="Views\Account\Info.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\_ViewStart.cshtml" />
+    <Content Include="Views\Products\_Layout.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\_Layout.cshtml" />
+    <Content Include="Views\Order\_ViewStart.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Shared\_OrderDetailPartial.cshtml" />
+    <Content Include="Views\Shared\_OnlineStorePicturePartial.cshtml" />
+    <Content Include="Views\Shop\Shop.cshtml" />
+    <Content Include="Views\OnlineStore\FindBrand.cshtml" />
+    <Content Include="Views\Order\Revenu.cshtml" />
+    <Content Include="Views\Journall\JournalList8.cshtml" />
+    <Content Include="Views\Journall\JournalList2.cshtml" />
+    <Content Include="Views\Journall\JournalList3.cshtml" />
+    <Content Include="Views\Journall\JournalList5.cshtml" />
+    <Content Include="Views\Journall\JournalList6.cshtml" />
+    <Content Include="Views\Journall\JournalList7.cshtml" />
+    <Content Include="Views\Journall\JournalList4.cshtml" />
+    <Content Include="Views\Details\FindProductById.cshtml" />
+    <Content Include="Views\Shared\_ProductDetailsPartial.cshtml" />
+    <Content Include="Views\Details\_Layout.cshtml" />
+    <Content Include="Views\Details\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_BookMarkPicturePartial.cshtml" />
+    <Content Include="Views\Cart\CartView.cshtml" />
+    <Content Include="Views\Cart\GetCart.cshtml" />
+    <Content Include="Views\Checkout\CheckInfo.cshtml" />
+    <Content Include="Views\Checkout\Payment.cshtml" />
+    <Content Include="Views\MemberCenter\_Layout.cshtml" />
+    <Content Include="Views\MemberCenter\_ViewStart.cshtml" />
+    <Content Include="Views\Checkout\Finished.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201911300636204_AddFieldDateOfBirth.resx">
+      <DependentUpon>201911300636204_AddFieldDateOfBirth.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65140</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44333/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>此專案參考這部電腦上所缺少的 NuGet 套件。請啟用 NuGet 套件還原，以下載該套件。如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的檔案是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
